@@ -19,7 +19,7 @@ Have you ever wondered how "race" and ancestry are "calculated" by 23andMe or An
 
 By the end of this workshop you should have rudimentary knowledge of the genetics that go into a report and know how to build our own admixture (ancestry) reports as well as understand how those reports can be hacked to make racial results different. 
  
-**Basics of Genetics**
+## Basics of Genetics
 In order to understand this hack you will need to have a basic understanding of genetics. 
 
 ### DNA 
