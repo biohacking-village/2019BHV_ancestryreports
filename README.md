@@ -1,4 +1,4 @@
-# Hacking Race: problems with "ancestry reports"
+# Hacking Race: Problems with "ancestry reports"
  
 _Biohacking Village DIY Workshops_
  
@@ -8,6 +8,10 @@ As part of our commitment to biohacking and open science, this 2019 DEF CON [Bio
 **Workshop leads:** @HerroAnneKim, Anvita Pandit, Bobby Hunt
  
 Have you ever wondered how "race" and ancestry are "calculated" by 23andMe or Ancestry.com? Have you ever questioned why your results seemed so "wrong"? Well, in this workshop we'll be building our own admixture (ancestry) reports from publicly available data as well as showing how we can "hack race" to make racial results different.
+
+[Original presentation - PPT](https://github.com/biohacking-village/2019BHV_hackingrace/blob/master/Hacking%20Race%20-%20Final.pptx)
+
+[Original presentation - ODT](https://github.com/biohacking-village/2019BHV_hackingrace/blob/master/Hacking%20Race%20-%20Final.odt)
 
 
 **Workshop Main Points**
@@ -20,7 +24,7 @@ Have you ever wondered how "race" and ancestry are "calculated" by 23andMe or An
 By the end of this workshop you should have rudimentary knowledge of the genetics that go into a report and know how to build our own admixture (ancestry) reports as well as understand how those reports can be hacked to make racial results different. 
  
 ## Basics of Genetics
-In order to understand this hack you will need to have a basic understanding of genetics. 
+In order to understand this hack you will need to have a basic understanding of genetics. Hacking Race - Final.pptx
 
 ### DNA 
 <img src="media/BHV19_hackrace1.png" width="300"> 
