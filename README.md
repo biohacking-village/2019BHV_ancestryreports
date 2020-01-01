@@ -47,46 +47,47 @@ During the process of recombination (whereby future parents produce unique eggs 
 
 ### Genetics Testing 
 
-With that understanding, let’s look at how genetics testing companies calculate your ancestry. They have access a proprietary panel of informative SNPs that differ between ethnicities. This panel is garnered from publicly available DNA sets with ancestry labels, but mostly it’s from their own customers, using self-reported ancestries. 23AndMe uses in total around 0.5M SNPs or about 0.016% of the genome, though Chinese researchers were able to tell the difference between Han Chinese and minority Uighur populations using only 35 SNPs (guess why they need to do that!). 
-
 <img src="media/BHV19_hackrace4.png" width="300"> 
+
+With that understanding, let’s look at how genetics testing companies calculate your ancestry. They have access a proprietary panel of informative SNPs that differ between ethnicities. This panel is garnered from publicly available DNA sets with ancestry labels, but mostly it’s from their own customers, using self-reported ancestries. 23AndMe uses in total around 0.5M SNPs or about 0.016% of the genome, though Chinese researchers were able to tell the difference between Han Chinese and minority Uighur populations using only 35 SNPs (guess why they need to do that!). 
 
 The genetics test splits up the customer DNA into very small chunks (to avoid running into a recombination event), and compares SNPs in each chunk to the SNP panel through a latent-state analysis, to retrieve the admixture. 
 
+
 <img src="media/BHV19_hackrace_mask.png" width="300"> 
+
 Using unsupervised clustering on samples of DNA from different populations worldwide, geneticists can differentiate about 23 different human ancestries.  But there are several obstacles to determining ancestry labels for DNA samples. 
 Due to heavy gene flow (the technical term for our ancestors having babies) throughout all 200,000 years of modern human history, the vast majority of individuals (97%) on all continents have some degree of mixed ancestry. That is, migration events in the distant past led to enough intermixing between populations that almost no one today belongs to just 1 of those 23 populations.
 Additionally, the variance present between the populations is much smaller than the variance present between individuals locally. For example, me and another random south indian will have the same amount of DNA variance as me and Anne.
 
 
-<img src="media/BHV19_hackrace_pc1.png" width="500"> 
-
 As an example of how there are no clear genetic categories for an individual, see this PCA clustering of a sample of 23AndMe’s customers in Europe, within a single continent. This is *after* careful selection of reference populations for each country - looking specifically for individuals with all four grandparents from a single region, who were not believed to have migrated within the last several hundred years.
 
-You can see the variance within a population is very wide, and since most populations are overlapping, the distance between two populations is not as wide.
+<img src="media/BHV19_hackrace_pc1.png" width="500"> 
 
-It’s possible to clearly distinguish some populations from each other: see that the Finnish population on the far left side are outliers on the graph, due to their relative isolation from the rest of Europe. However, for any single individual, it’s unclear which population they might fall into because all the populations overlap to some extent - see that the green dots representing people from Norway overlaps partially with Finland. At best you could narrow it down to 2 countries.
+You can see the variance within a population is very wide, and since most populations are overlapping, the distance between two populations is not as wide. It’s possible to clearly distinguish some populations from each other: see that the Finnish population on the far left side are outliers on the graph, due to their relative isolation from the rest of Europe. However, for any single individual, it’s unclear which population they might fall into because all the populations overlap to some extent - see that the green dots representing people from Norway overlaps partially with Finland. At best you could narrow it down to 2 countries.
 
 
 <img src="media/BHV19_hackrace_bias.png" width="300"> 
 
-There’s also a major social flaw with genetics testing:
-23AndMe/Ancestry database is most popular with European White and Asian populations, so those segments have much richer data available. It’s also true of genetics datasets available to academia and governments: mostly European.
+The major social flaw with genetics testing: **23AndMe/Ancestry database is most popular with European White and Asian populations, so those segments have much richer data available. It’s also true of genetics datasets available to academia and governments: mostly European.**
 
-Resources:
+Lack of data on other ancestries, like African or Indigenous American makes it difficult to determine the causes of genetic diseases in those populations, which hinders the development of therapies. Unfortunately the work of studies to identify genetic risk variants based on European databases will not fully translate to other non-European populations. 
+
+**But adding more data will not solve ancestry profiling!** Ancestry testing will always be confounded by the fact that our ancestors engaged in multiple mass-migrations in the distant past, which have exponentially increased over the last several thousand years to current day.
+
+**One great flaw with all DNA analysis:** It ignores the importance of effect size to the phenotype
+
+
+
+------
+References:
+
 https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3079573/: Genome wide association studies in European populations have issues with extending to non-European populations
 
 https://www.23andme.com/ancestry-composition-guide/
 
-Lack of data on other ancestries, like African or Indigenous American makes it difficult to determine the causes of genetic diseases in those populations, which hinders the development of therapies. 
-Unfortunately the work of studies to identify genetic risk variants based on European databases will not fully translate to other non-European populations. 
-
 https://www.nature.com/articles/475163a
-
-**But adding more data will not solve ancestry profiling!**
-Ancestry testing will always be confounded by the fact that our ancestors engaged in multiple mass-migrations in the distant past, which have exponentially increased over the last several thousand years to current day.
-
-**One great flaw with all DNA analysis:** It ignores the importance of effect size to the phenotype
 
 
 ## Materials (What you will need)
@@ -96,11 +97,12 @@ Ancestry testing will always be confounded by the fact that our ancestors engage
 + Access to the 1000 Genome dataset: https://www.genome.gov/27528684/1000-genomes-project/
 
 ## Experiment
-Goal: 
-Shift DNA sample from original ancestry to target ancestry
+
+Goal: Shift DNA sample from original ancestry to target ancestry
 
 
 Method:
+
 + Cluster with all the data as normal
 + Score all the data against the sample data
 + Hack the data
@@ -111,36 +113,40 @@ Method:
 
 
 ## Instructions
+
 Go to the the workshop lead's repository: https://github.com/herroannekim/hacking_race and follow the steps on the repo README page
 The repo will guide you through set up (Step 0 to Step 3), clustering data (step 4), hacking data (step 5 and 6) and then clean up of environment (Step 7). 
 
-Below is some help for steps 4-6 
+Below is some help for steps 4-6. 
 
 ### Step 4: Run ancestry prediction and clustering
-With the environment set up, you can now run a prediction on a sample, we chose HG01108, a Puerto Rican female.
-Sample data location: http://www.internationalgenome.org/data-portal/sample/HG01108
+
+With the environment set up, you can now run a prediction on a sample, we chose [HG01108, a Puerto Rican female.](http://www.internationalgenome.org/data-portal/sample/HG01108)
+
 <img src="media/BHV19_hackrace_HG_sample.png" width="300">
 
 
-Command to cluster the data
->$ python2 hacker.py --model GTM --out classify_HG01108 --config ./standard_config.json --classify-id HG01108
+Use the command to cluster the data
+
+> $ python2 hacker.py --model GTM --out classify_HG01108 --config ./standard_config.json --classify-id HG01108
 
 
 The visual of the cluster will be provided in the output from the command running. In this example it is classify_HG01108.html.
-
-Cluster Visual via `classify_HG01108.html`
 
 <img src="media/BHV19_hackrace_GTM1.png" width="300">
 
 
 
 HG1108 Original Ancestry
+
 <img src="media/BHV19_hackrace_highlight1a.png" width="400">
+
 <img src="media/BHV19_hackrace_highlight1b.png" width="400">
 
 
 
-### Step 5: Hack 3:D
+### Step 5: Hack
+
 For the ancestry hack, we will now shift her ancestry towards Kenyan using the command:
 
 > $ python2 hacker.py --model GTM --out kenya_dig_it --classify-id HG01108 --config ./standard_config.json --manipulate-towards "Luhya_in_Webuye,_Kenya"
