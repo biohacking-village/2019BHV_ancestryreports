@@ -78,9 +78,6 @@ Lack of data on other ancestries, like African or Indigenous American makes it d
 
 **One great flaw with all DNA analysis:** It ignores the importance of effect size to the phenotype
 
-
-
-------
 References:
 
 https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3079573/: Genome wide association studies in European populations have issues with extending to non-European populations
@@ -89,6 +86,7 @@ https://www.23andme.com/ancestry-composition-guide/
 
 https://www.nature.com/articles/475163a
 
+------
 
 ## Materials (What you will need)
 
@@ -149,16 +147,14 @@ HG1108 Original Ancestry
 
 For the ancestry hack, we will now shift her ancestry towards Kenyan using the command:
 
-> $ python2 hacker.py --model GTM --out kenya_dig_it --classify-id HG01108 --config ./standard_config.json --manipulate-towards "Luhya_in_Webuye,_Kenya"
+> $ python2 hacker.py --model GTM --out kenya_dig_it --classify-id HG01108 --config ./standard_config.json --manipulate-towards "Luhya_in_Webuye,_Kenya" 
 
 <img src="media/BHV19_hackrace_screen.png" width="300">
 
 
 Hack - Visual via kenya_dig_it.html and kenya_dig_it_trainedMap.html
 
-<img src="media/BHV19_hackrace_GTM2.png" width="300">
-<img src="media/BHV19_hackrace_GTM3.png" width="300">
-<img src="media/BHV19_hackrace_GTM4.png" width="300">
+<img src="media/BHV19_hackrace_GTM2.png" width="250"> <img src="media/BHV19_hackrace_GTM3.png" width="275">  <img src="media/BHV19_hackrace_GTM4.png" width="250">
 
 
 
