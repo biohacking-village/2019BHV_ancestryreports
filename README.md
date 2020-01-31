@@ -28,6 +28,7 @@ In order to understand this hack you will need to have a basic understanding of 
 
 ### DNA 
 <img src="media/BHV19_hackrace1.png" width="300"> 
+
 * An individual’s genome is sequenced based off a DNA sample (spit works)
 * 95% of that genome will be exactly the same as every other humans. The remaining 5% variation is very important for distinguishing that human
 * We refer to the DNA variations as SNPs, there are other kinds of mutations but SNPs are most relevant for categorizing.
